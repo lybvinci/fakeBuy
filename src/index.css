@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #faf6ee;
+  --color-paper: #f1ebda;
+  --color-ink: #1a1a1a;
+  --color-vermilion: #d63a2f;
+  --color-moss: #1f3a2e;
+  --color-mustard: #e8b547;
+  font-family: "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.55;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(rgba(26, 26, 26, 0.05) 1px, transparent 1px),
+    radial-gradient(rgba(214, 58, 47, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px, 36px 36px;
+  background-position: 0 0, 11px 11px;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Noto Serif SC", Fraunces, serif;
+    color: inherit;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-vermilion);
+    color: var(--color-cream);
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: "Fraunces", "Noto Serif SC", serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .text-mono {
+    font-family: "Space Mono", ui-monospace, Menlo, monospace;
+  }
+
+  .surface-paper {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-ink);
+  }
+
+  .hairline {
+    border: 1px solid var(--color-ink);
+  }
+
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium tracking-wide transition-all duration-150 active:translate-y-[1px] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .scroll-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-hide {
+    scrollbar-width: none;
+  }
+}
+
+.qrcode-grid {
+  background-image:
+    linear-gradient(var(--color-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-ink) 1px, transparent 1px);
+  background-size: 8px 8px;
+}

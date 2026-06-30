@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>假买 fakeBuy — 假装在买</title>
+    <meta name="description" content="一个看起来很真、其实啥也没买的购物网站。可以无限下单，永远不付钱，包裹永远在路上。" />
+    <script>
+      // SPA fallback for GitHub Pages：从 404.html 跳转回来时，将
+      // ?/route 形式的查询串还原成真实 URL，再由 React Router 接管。
+      (function () {
+        var l = window.location;
+        if (l.search.indexOf("?/") === 0) {
+          var decoded = l.search
+            .slice(2)
+            .split("&")
+            .map(function (s) { return s.replace(/~and~/g, "&"); });
+          var route = decoded.shift();
+          var query = decoded.length ? "?" + decoded.join("&") : "";
+          window.history.replaceState(
+            null,
+            "",
+            l.pathname.slice(0, -1) + (route ? "/" + route : "") + query + l.hash
+          );
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module">
+      if (import.meta.hot?.on) {
+        import.meta.hot.on('vite:error', (error) => {
+          if (error.err) {
+            console.error(
+              [error.err.message, error.err.frame].filter(Boolean).join('\n'),
+            )
+          }
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
